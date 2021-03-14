@@ -6,12 +6,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Registration Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/signin.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Login Page</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"> 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Register!</h1>
-    
+<body class="text-center">
+<main class="form-signin">
+    <img class="mb-3" src="/logo-enva-2.png" alt="" width="auto" height="auto">
+	<h2>Welcome, please register</h2>
     <p><form:errors path="user.*"/></p>
     
     <form:form method="POST" action="/registration" modelAttribute="user">
@@ -46,10 +74,6 @@
     	<p>
         <form:select path="current_section">
     		<option value="" disabled selected>Select a Position</option>
-<!--     			<option value="sales">Sales Staff</option>
-    			<option value="office">Office Staff</option>
-    			<option value="tourGuide">Tour Guide</option>
-    			<option value="captain">Operations Staff</option> -->
     			<c:forEach items="${sections}" var="s">
 					<form:option value="${s}">
 						<c:out value="${s.name}"></c:out>
@@ -65,20 +89,10 @@
             <form:label path="passwordConfirmation">Password Confirmation:</form:label>
             <form:password path="passwordConfirmation"/>
         </p>
-        <input type="submit" value="Register!"/>
+        <button type="submit" value="Register">Register</button>
     </form:form>
-    <h1>Login</h1>
-    <p><c:out value="${error}" /></p>
-    <form method="post" action="/login">
-        <p>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email"/>
-        </p>
-        <p>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"/>
-        </p>
-        <input type="submit" value="Login!"/>
-    </form>
+    <h3 class="mt-5"><a class="notreg" href="/login">Already registered? Sign in here!</a></h3>
+         <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+  </main>
 </body>
 </html>

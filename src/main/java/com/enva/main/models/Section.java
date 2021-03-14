@@ -27,6 +27,10 @@ public class Section {
     private Date createdAt;
     private Date updatedAt;
     
+    private String description;
+    
+    private String imageUrl;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="lead_id")
     private User lead;
@@ -43,10 +47,22 @@ public class Section {
     @OneToMany(mappedBy="current_section", fetch = FetchType.LAZY)
     private List<User> members;
     
-    public Section() {
+    public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public Section() {
         
     }
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 	public Long getId() {
 		return id;
 	}

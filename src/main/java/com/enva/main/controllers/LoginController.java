@@ -44,7 +44,7 @@ public class LoginController {
 	    		return "registrationPage.jsp";
 	    	}
 	    	User newUser = userService.registerUser(user);
-	    	session.setAttribute("userid", newUser.getId());
+	    	session.setAttribute("userId", newUser.getId());
 	    	return "redirect:/index";
 	      
 	    }
@@ -59,10 +59,12 @@ public class LoginController {
 				// if the user is authenticated, save their user id in session
 				// else, add error messages and return the login page
 				if(userService.authenticateUser(email, password)) {
+					System.out.println("if it runs");
 				User thisUser = userService.findByEmail(email);
 				session.setAttribute("userId", thisUser.getId());
 				return "redirect:/index";
 				}
+				System.out.println("if it hads errors");
 				flash.addFlashAttribute("error", "failed to login");
 				return "redirect:/registration";
 				}

@@ -6,16 +6,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Edit Task</title>
+<title>Edit User</title>
 </head>
 <body>
 
-<h1>Edit <c:out value="${task.name }"></c:out></h1>
+<h1>Edit <c:out value="${user.name }"></c:out></h1>
 
-<form:form action="/edit/task/${id}" method="post" modelAttribute="task">
+<form:form action="/edit/user/${id}" method="post" modelAttribute="user">
  
  <p>
-<form:label path="name">Task:</form:label>
+<form:label path="name">User:</form:label>
 <form:errors path="name"></form:errors>
 <form:input path="name"></form:input>
 </p>
