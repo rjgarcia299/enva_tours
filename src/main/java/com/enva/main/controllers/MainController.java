@@ -69,7 +69,21 @@ public class MainController {
 		 userService.allUsers(); model.addAttribute("users", users);
 		 return "showProfile.jsp";
 		 }
-	}}
+	}
+@GetMapping("/section/profile/{id}")
+public String showProfile(@PathVariable("id")Long id, @ModelAttribute("section")Section section, Model model, HttpSession session) {
+	 if(session.getAttribute("userId")==null){
+		 System.out.println("if it fails");
+	  return "redirect:/login"; 
+	 }
+	 else {
+	 User user = userService.findUserById(id);
+	 model.addAttribute("section", sectionService.findSection(id));
+	 model.addAttribute("sections", sectionService.allSections());
+	 model.addAttribute("user", user);
+	 return "editUser.jsp";
+	 }
+}}
 //	 @RequestMapping("/task/{id}")
 //	 public String task(@PathVariable("id")Long id, @ModelAttribute("task")Task task, Model model, HttpSession session)
 //		{

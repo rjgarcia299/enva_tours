@@ -82,7 +82,6 @@ integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolfl
       			</div>
       			</div>
        		 </c:forEach>
-       		 2
        		 </div>
 <!--       <div class="card">
         <img src="https://media-cdn.tripadvisor.com/media/photo-o/1b/bc/be/82/clearboat.jpg" alt="...">

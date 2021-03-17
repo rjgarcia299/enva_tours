@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="index, follow">
-<title>Section</title>
+<title>Profile Page</title>
 <link rel=" icon" href="css/sailing-boat-black-symbol_icon-icons.com_57916.ico">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
 integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -31,12 +31,8 @@ integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolfl
   </style>
   <link href="sticky-footer-navbar.css" rel="stylesheet">
 </head>
-
-<body class="d-flex flex-column h-100">
-
-  <header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<main>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container-fluid">
       <img src="/logo-enva-2.png" height="33">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -59,51 +55,59 @@ integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolfl
         </div>
       </div>
     </nav>
-  </header>
-
-  <!-- Begin page content -->
-  <main class="flex-shrink-0">
-    <div class="container">
+    <div class="container mt-5">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg" class="d-block w-100" alt="Image 1">
+        </div>
+        <div class="carousel-item">
+          <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(33).jpg" class="d-block w-100" alt="Image 2">
+        </div>
+        <div class="carousel-item">
+          <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg" class="d-block w-100" alt="Image 3">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+   	 </div>
+     </div>
       <h2 class="mt-5" ><c:out value="${section.name } -Managed by ${section.lead.firstName }"/></h2>
       <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Employee #</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Section</th>
-      <th scope="col">Phone Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    <c:forEach items="${sectionUsers}" var="user">
-    <tr>
-      <td>${user.id}</td>
-      <td>${user.firstName}</td>
-      <td>${user.lastName}</td>
-      <td>${user.email}</td>
-      <td>${user.current_section.name}</td>
-      <td>${user.phoneNumber}</td>
-	</tr>
-	</c:forEach>
-  </tbody>
-</table>
-    </div>
-  </main>
-
+	  <thead>
+	    <tr>
+	      <th scope="col">Employee #</th>
+	      <th scope="col">First Name</th>
+	      <th scope="col">Last Name</th>
+	      <th scope="col">Email</th>
+	      <th scope="col">Section</th>
+	      <th scope="col">Phone Number</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <c:forEach items="${sectionUsers}" var="user">
+	    <tr>
+	      <td><a href="profile/${user.id}">${user.id}</a></td>
+	      <td>${user.firstName}</td>
+	      <td>${user.lastName}</td>
+	      <td>${user.email}</td>
+	      <td>${user.current_section.name}</td>
+	      <td>${user.phoneNumber}</td>
+		</tr>
+		</c:forEach>
+	  </tbody>
+	</table>
+ </main>
   <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
       <span class="text-muted">&copy; 2017–2021</span>
     </div>
   </footer>
-</body>
-</head>
-<body>
-<%-- <c:forEach items="${allTasks}" var="task">
-<h4><a href="/task/${task.id }"><c:out value="${task.firstName}"/></a></h4>
-<p>Assigned To:<c:out value="${task.user.name }"></c:out></p>
-<p>Priority Level:<c:out value="${task.priority.name}"></c:out></p>
-</c:forEach> --%>
 </body>
 </html>

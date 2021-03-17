@@ -10,30 +10,52 @@
 </head>
 <body>
 
-<h1>Edit <c:out value="${user.name }"></c:out></h1>
+<h1>Edit <c:out value="${user.firstName}"></c:out></h1>
 
 <form:form action="/edit/user/${id}" method="post" modelAttribute="user">
- 
- <p>
-<form:label path="name">User:</form:label>
-<form:errors path="name"></form:errors>
-<form:input path="name"></form:input>
-</p>
-<form:label path="user">Assignee</form:label>
-<form:select path="user">
-<c:forEach items="${users }" var="user">
-<form:option value="${user}">${user.name }</form:option>
-</c:forEach>
-</form:select>
-<form:label path="priority">Priority</form:label>
-<form:select path="priority">
-<c:forEach items="${priorities }" var="priority">
-<form:option value="${priority}">${priority.name }</form:option>
+
+<form:label path="sections">Section</form:label>
+<form:select path="sections">
+<c:forEach items="${sections }" var="sec">
+<form:option value="${sec.id}">${sec.name }</form:option>
 </c:forEach>
 </form:select>
 <p>
+            <form:label path="firstName">First name:</form:label>
+            <form:input type="firstName" path="firstName"/>
+        </p>
+        <p>
+            <form:label path="lastName">Last name:</form:label>
+            <form:input type="lastName" path="lastName"/>
+        </p>
+        <p>
+            <form:label path="email">Email:</form:label>
+            <form:input type="email" path="email" placeholder="youremail@email.com"/>
+        </p>
+    	<p>
+            <form:label path="phoneNumber">Phone Number:</form:label>
+            <form:input type="phone" path="phoneNumber" placeholder="(123)456-7899" />
+        </p>
+        <p>
+        <form:select path="gender">
+    		<option disabled selected>Select a Gender</option>
+    			<option value="male">Male</option>
+    			<option value="female">Female</option>
+    	</form:select>
+    	</p>
+    	<p>
+        <form:select path="current_section">
+    		<option value="" disabled selected>Select a Position</option>
+    			<c:forEach items="${sections}" var="s">
+					<form:option value="${s}">
+						<c:out value="${s.name}"></c:out>
+					</form:option>
+				</c:forEach>
+    	</form:select>
+    	</p>
+<p>
  <input type="submit" value="Submit"/>
+</p>
 </form:form>
-
 </body>
 </html>
