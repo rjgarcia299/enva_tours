@@ -6,4 +6,5 @@ Inside each trip, there will be assigned a boat with its properties.
 More Ideas to follow. I had the opportunity to be involved in a fastly expanding company that needs to develop for training, accounting, gross sales, and big picture planning.
 I like starting from scratch and developing my capabilities with the number of experiences I gained while working with International clients and growing business assets.
 
-! [] (ezgif.com-gif-maker.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/73907919/117385104-41142280-ae99-11eb-8fc9-d892b9338e3d.gif)
+
